@@ -1,0 +1,1 @@
+<?php require_once 'views/student/catalog.view.php' ?>
