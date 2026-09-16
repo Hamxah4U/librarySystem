@@ -1,4 +1,51 @@
 <?php
+  
+  session_start();
+
+  $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+  // Remove '/index.php' prefix if present in the path
+  $uri = str_replace('/index.php', '', $uri);
+  if ($uri === '') {
+      $uri = '/';
+  }
+
+  // Routes allowed without login
+  $publicRoutes = ['/', '/login', '/resetpassword'];
+
+  if (!isset($_SESSION['user_id']) && !in_array($uri, $publicRoutes)) {
+      header('Location: /');
+      exit();
+  }
+
+  $routes = [
+      '/' => 'controllers/index.php',
+      '/student-dashboard' => 'controllers/student/dashboard.php',
+      '/student-catalog'   => 'controllers/student/catalog.php',
+      '/student-loans'     => 'controllers/student/loan.php',
+      '/student-holds'     => 'controllers/student/hold.php',
+      '/student-fines'     => 'controllers/student/fine.php',
+
+      // Staff routes
+      '/staff-dashboard'   => 'controllers/staff/dashboar.php',
+      '/staff-issue-book' => 'controllers/staff/issue-book.php',
+      '/staff-add-book'   => 'controllers/staff/add-book.php',
+  ];
+
+  if (array_key_exists($uri, $routes)) {
+      require $routes[$uri];
+  } else {
+      require 'controllers/404.php';
+  }
+
+
+
+
+
+
+
+
+
 /* session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
@@ -35,36 +82,3 @@ if(array_key_exists($uri, $routes)) {
 }else{
   require 'controllers/404.php';
 } */
-
-session_start();
-
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-// Remove '/index.php' prefix if present in the path
-$uri = str_replace('/index.php', '', $uri);
-if ($uri === '') {
-    $uri = '/';
-}
-
-// Routes allowed without login
-$publicRoutes = ['/', '/login', '/resetpassword'];
-
-if (!isset($_SESSION['user_id']) && !in_array($uri, $publicRoutes)) {
-    header('Location: /');
-    exit();
-}
-
-$routes = [
-    '/' => 'controllers/index.php',
-    '/student-dashboard' => 'controllers/student/dashboard.php',
-    '/student-catalog'   => 'controllers/student/catalog.php',
-    '/student-loans'     => 'controllers/student/loan.php',
-    '/student-holds'     => 'controllers/student/hold.php',
-    '/student-fines'     => 'controllers/student/fine.php',
-];
-
-if (array_key_exists($uri, $routes)) {
-    require $routes[$uri];
-} else {
-    require 'controllers/404.php';
-}
