@@ -42,6 +42,8 @@
 
       '/staff-fines'       => 'controllers/staff/fines.php',
       '/staff-update-fine' => 'controllers/staff/update-fine.php',
+      '/staff-reports' => 'controllers/staff/reports.php',
+      '/logout' => 'controllers/logout.php',
   ];
 
   if (array_key_exists($uri, $routes)) {
