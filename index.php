@@ -35,6 +35,10 @@
       '/staff-verify-payment' => 'controllers/staff/verify-payment.php',
       '/staff-inventory' => 'controllers/staff/inventory.php',
       '/staff-update-book' => 'controllers/staff/update-book.php',
+
+      '/staff-patrons'       => 'controllers/staff/patrons.php',
+      '/staff-add-patron'    => 'controllers/staff/add-patron.php',
+      '/staff-update-patron' => 'controllers/staff/update-patron.php',
   ];
 
   if (array_key_exists($uri, $routes)) {
