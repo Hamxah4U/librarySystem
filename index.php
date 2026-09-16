@@ -33,9 +33,8 @@
       '/staff-circulation' => 'controllers/staff/circulation.php',
       '/staff-return-book' => 'controllers/staff/return-book.php',
       '/staff-verify-payment' => 'controllers/staff/verify-payment.php',
-
       '/staff-inventory' => 'controllers/staff/inventory.php',
-      
+      '/staff-update-book' => 'controllers/staff/update-book.php',
   ];
 
   if (array_key_exists($uri, $routes)) {
