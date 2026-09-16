@@ -1,0 +1,1 @@
+<?php require 'views/staff/inventory.view.php' ?>

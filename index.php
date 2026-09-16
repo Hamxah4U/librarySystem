@@ -30,6 +30,12 @@
       '/staff-dashboard'   => 'controllers/staff/dashboar.php',
       '/staff-issue-book' => 'controllers/staff/issue-book.php',
       '/staff-add-book'   => 'controllers/staff/add-book.php',
+      '/staff-circulation' => 'controllers/staff/circulation.php',
+      '/staff-return-book' => 'controllers/staff/return-book.php',
+      '/staff-verify-payment' => 'controllers/staff/verify-payment.php',
+
+      '/staff-inventory' => 'controllers/staff/inventory.php',
+      
   ];
 
   if (array_key_exists($uri, $routes)) {
