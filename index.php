@@ -39,6 +39,9 @@
       '/staff-patrons'       => 'controllers/staff/patrons.php',
       '/staff-add-patron'    => 'controllers/staff/add-patron.php',
       '/staff-update-patron' => 'controllers/staff/update-patron.php',
+
+      '/staff-fines'       => 'controllers/staff/fines.php',
+      '/staff-update-fine' => 'controllers/staff/update-fine.php',
   ];
 
   if (array_key_exists($uri, $routes)) {
